@@ -1,0 +1,52 @@
+{
+  "name": "POST_GetApisOfOrg_Expect_CorrectData.json",
+  "request": {
+    "method": "POST",
+    "url": "/apim/apis?organizationId=${ORG_UUID}",
+    "body": {
+      "name": "WorldBank",
+      "apiVersion": "1.0.0",
+      "policies": [
+        "Gold",
+        "Silver",
+        "Bronze"
+      ],
+      "application": {
+        "id": "${APP_ID}",
+        "name": "${APP_NAME}",
+        "org": "${ORG_NAME}"
+      }
+    },
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "organization": {
+        "id": "115",
+        "uuid": "760307ba-e57c-4ac9-9c8c-368024d5dbd2",
+        "handle": "${ORG_NAME}",
+        "name": "${ORG_NAME}"
+      },
+      "isAdmin": true
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+
+    ]
+  }
+}

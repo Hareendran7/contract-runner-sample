@@ -1,0 +1,58 @@
+{
+  "name": "GET_FetchApisOfOrgThroughProxy_Expect_CorrectData",
+  "request": {
+    "method": "GET",
+    "url": "/apim/proxy/api/am/publisher/v2/apis?organizationId=${ORG_UUID}",
+    "body": {},
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "count": 1,
+      "list": [
+        {
+          "id": "6094bd7ece85f95a5f7c6924",
+          "name": "sdwqf",
+          "description": null,
+          "context": "/hasithaathukorala/sdwqf/1.0.0",
+          "additionalProperties": {
+            "apiEndpoint": {
+              "value": "https://sdwqf-hasithaathukorala.choreoapis.dev",
+              "display": false
+            }
+          },
+          "version": "1.0.0",
+          "provider": "choreo_prod_apim_admin",
+          "type": "HTTP",
+          "lifeCycleStatus": "PUBLISHED",
+          "workflowStatus": null,
+          "hasThumbnail": false,
+          "securityScheme": [],
+          "createdTime": "2021-05-07 04:09:34",
+          "updatedTime": null
+        }
+      ],
+      "pagination": {
+        "offset": 0,
+        "limit": 25,
+        "total": 1,
+        "next": "",
+        "previous": ""
+      }
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "count",
+        "type": "EXACT"
+      }
+    ]
+  }
+}

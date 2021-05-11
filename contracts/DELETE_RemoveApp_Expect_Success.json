@@ -1,0 +1,50 @@
+{
+  "name": "DELETE_RemoveApp_Expect_Success",
+  "request": {
+    "method": "DELETE",
+    "url": "/orgs/${ORG_NAME}/apps/${APP_NAME}",
+    "body": {
+      "name":"${APP_NAME}",
+      "displayName": "${APP_NAME}"
+    },
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "29095",
+      "name": "${APP_NAME}",
+      "organizationId": "115",
+      "org": "${ORG_NAME}",
+      "displayName": "${APP_NAME}",
+      "gitRemote": "https://github.com/integration-apps-dev/${ORG_NAME}-${APP_NAME}.git",
+      "createdAt": "2021-05-04T04:02:03Z",
+      "observability": {}
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "name",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "displayName",
+        "type": "EXACT"
+      }
+    ]
+  }
+}

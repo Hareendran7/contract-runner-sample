@@ -1,0 +1,43 @@
+{
+  "name": "PUT_AddApiToApp_Expect_CorrectData",
+  "request": {
+    "method": "PUT",
+    "url": "/apim/apis",
+    "body": {
+      "appHandle": "${APP_NAME}",
+      "orgHandle": "${ORG_NAME}",
+      "user": "${IDP_USERNAME}",
+      "appStatus": "running"
+    },
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "organization": {
+        "id": "115",
+        "uuid": "760307ba-e57c-4ac9-9c8c-368024d5dbd2",
+        "handle": "${ORG_NAME}",
+        "name": "${ORG_NAME}"
+      },
+      "isAdmin": true
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+    ]
+  }
+}

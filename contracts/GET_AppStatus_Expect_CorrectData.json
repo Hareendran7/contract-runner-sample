@@ -1,0 +1,54 @@
+{
+  "name": "GET_AppStatus_Expect_CorrectData",
+  "request": {
+    "method": "GET",
+    "url": "/orgs/${ORG_NAME}/apps/${APP_NAME}",
+    "body": {},
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "1493",
+      "name": "${APP_NAME}",
+      "organizationId": "1302",
+      "org": "${ORG_NAME}",
+      "displayName": "${APP_NAME}",
+      "displayType": "Integration Draft",
+      "gitRemote": "https://github.com/integration-apps/${ORG_NAME}-${APP_NAME}.git",
+      "workingFile": "/apps/${ORG_NAME}/${APP_NAME}/project/choreo.bal",
+      "createdAt": "2021-05-03T11:18:19Z",
+      "observability": {},
+      "status": "stopped"
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "org",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "name",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "displayName",
+        "type": "EXACT"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "beforeSuiteConfigs": {
+    "preContracts": [
+      "DELETE_RemoveApp_Expect_Success.json"
+    ],
+    "contracts": [
+      "POST_CreateApp_Expect_Success.json"
+    ]
+  },
+  "afterSuiteConfigs": {
+    "contracts": [
+      "DELETE_RemoveApp_Expect_Success.json"
+    ]
+  },
+  "envs": {
+    "BASE_URL": "https://app.dv.choreo.dev",
+    "APP_NAME": "appforintegrationtests",
+    "ORG_NAME": "choreotestuserlocal",
+    "IDP_USERNAME": "3f2c9d99-6240-4c1c-acb8-9961d828387c",
+    "IDP_PASSWORD": "HeHEKGPhiOA66p4fuZnX",
+    "IDP_AUTH_HEADER": "Basic Y2hvcmVvcG9ydGFsYXBwbGljYXRpb246MzQzNGE2ZmVkc2NzZGUzMzNk",
+    "IDP_URL": "https://id.preprod.choreo.dev/oauth2/token"
+  }
+}

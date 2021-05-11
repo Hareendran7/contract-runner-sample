@@ -1,0 +1,49 @@
+{
+  "name": "GET_AppStatus_Expect_CorrectData",
+  "request": {
+    "method": "GET",
+    "url": "/healthz?full=1",
+    "body": {},
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "core": "OK",
+      "deployment": "OK",
+      "redis": "OK",
+      "workspaces": "OK"
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "core",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "deployment",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "redis",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "workspaces",
+        "type": "EXACT"
+      }
+    ]
+  }
+}

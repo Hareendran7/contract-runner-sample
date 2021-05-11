@@ -1,0 +1,29 @@
+{
+  "name": "POST_AppPing_Expect_200OK",
+  "request": {
+    "method": "POST",
+    "url": "/orgs/${ORG_NAME}/apps/${APP_NAME}/ping",
+    "body": {},
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {},
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": []
+  }
+}

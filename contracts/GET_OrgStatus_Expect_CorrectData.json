@@ -1,0 +1,58 @@
+{
+  "name": "GET_OrgStatus_Expect_CorrectData",
+  "request": {
+    "method": "GET",
+    "url": "/orgs/${ORG_NAME}",
+    "body": {},
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "organization": {
+        "id": "115",
+        "uuid": "760307ba-e57c-4ac9-9c8c-368024d5dbd2",
+        "handle": "${ORG_NAME}",
+        "name": "${ORG_NAME}"
+      },
+      "isAdmin": true
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "isAdmin",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "organization.name",
+        "type": "EXACT"
+      }
+    ]
+  },
+  "postConditions": {
+    "setEnvs": [
+      {
+        "key": "ORG_UUID",
+        "jsonPath": "organization.uuid"
+      },
+      {
+        "key": "ORG_ID",
+        "jsonPath": "organization.id"
+      }
+    ]
+  }
+}

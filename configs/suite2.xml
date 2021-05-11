@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="suite2" parallel="tests" thread-count="2" verbose="2">
+    <parameter name="configName" value="suite2config.json"/>
+    <test name="GET_FetchApisOfOrgThroughProxy_Expect_CorrectData">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="GET_FetchApisOfOrgThroughProxy_Expect_CorrectData.json"/>
+            </class>
+        </classes>
+    </test>
+</suite>

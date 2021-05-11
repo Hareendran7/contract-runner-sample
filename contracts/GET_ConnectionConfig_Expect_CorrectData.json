@@ -1,0 +1,127 @@
+{
+  "name": "GET_ConnectionConfig_Expect_CorrectData",
+  "request": {
+    "method": "GET",
+    "url": "/connection/configs",
+    "body": {},
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "connectorName": "GitHub",
+        "oauth2Config": {
+          "apiBaseUrl": "https://api.github.com",
+          "clientId": "4f13f5837d67427eec2c",
+          "authUrl": "https://github.com/login/oauth/authorize",
+          "redirectUrl": "https://console.dv.choreo.dev/oauth2/cb/github",
+          "params": [
+            {
+              "key": "scope",
+              "value": "repo"
+            }
+          ]
+        }
+      },
+      {
+        "connectorName": "Google Sheets",
+        "oauth2Config": {
+          "apiBaseUrl": "https://sheets.googleapis.com",
+          "clientId": "803744152566-1v6u919722ti6gcmtg95b0a9epa6j28o.apps.googleusercontent.com",
+          "authUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+          "redirectUrl": "https://console.dv.choreo.dev/oauth2/cb/googlesheets",
+          "params": [
+            {
+              "key": "response_type",
+              "value": "code"
+            },
+            {
+              "key": "access_type",
+              "value": "offline"
+            },
+            {
+              "key": "prompt",
+              "value": "consent"
+            },
+            {
+              "key": "scope",
+              "value": "https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.readonly openid email"
+            }
+          ]
+        }
+      },
+      {
+        "connectorName": "Google Calendar",
+        "oauth2Config": {
+          "apiBaseUrl": "https://www.googleapis.com/calendar/v3",
+          "clientId": "803744152566-1v6u919722ti6gcmtg95b0a9epa6j28o.apps.googleusercontent.com",
+          "authUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+          "redirectUrl": "https://console.dv.choreo.dev/oauth2/cb/googlecalendar",
+          "params": [
+            {
+              "key": "response_type",
+              "value": "code"
+            },
+            {
+              "key": "access_type",
+              "value": "offline"
+            },
+            {
+              "key": "prompt",
+              "value": "consent"
+            },
+            {
+              "key": "scope",
+              "value": "https://www.googleapis.com/auth/calendar openid email"
+            }
+          ]
+        }
+      },
+      {
+        "connectorName": "Gmail",
+        "oauth2Config": {
+          "apiBaseUrl": "https://gmail.googleapis.com",
+          "clientId": "803744152566-1v6u919722ti6gcmtg95b0a9epa6j28o.apps.googleusercontent.com",
+          "authUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+          "redirectUrl": "https://console.dv.choreo.dev/oauth2/cb/gmail",
+          "params": [
+            {
+              "key": "response_type",
+              "value": "code"
+            },
+            {
+              "key": "access_type",
+              "value": "offline"
+            },
+            {
+              "key": "prompt",
+              "value": "consent"
+            },
+            {
+              "key": "scope",
+              "value": "https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.compose openid email"
+            }
+          ]
+        }
+      }
+    ],
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "expectedValue": "application/json",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": []
+  }
+}

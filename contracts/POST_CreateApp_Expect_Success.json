@@ -1,0 +1,64 @@
+{
+  "name": "POST_CreateApp_Expect_Success",
+  "request": {
+    "method": "POST",
+    "url": "/orgs/${ORG_NAME}/apps",
+    "body": {
+      "name":"${APP_NAME}",
+      "displayName": "${APP_NAME}"
+    },
+    "headers": {
+      "Authorization": "Bearer ${BEARER_TOKEN}",
+      "Content-Type": "application/json",
+      "Cookie": "cwatf=${CWATF}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "29095",
+      "name": "${APP_NAME}",
+      "organization": {
+        "id": "115"
+      },
+      "org": "${ORG_NAME}",
+      "displayName": "${APP_NAME}",
+      "createdAt": "2021-05-04T04:02:03Z",
+      "observability": {}
+    },
+    "headers": {
+      "Content-type": "application/json"
+    }
+  },
+  "assertions": {
+    "headersPathCheck": [
+      {
+        "jsonPath": "Content-type",
+        "type": "EXACT"
+      }
+    ],
+    "bodyPathCheck": [
+      {
+        "jsonPath": "name",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "displayName",
+        "type": "EXACT"
+      },
+      {
+        "jsonPath": "id",
+        "type": "REGEX",
+        "typeValue": "^\\d{5}$"
+      }
+    ]
+  },
+  "postConditions": {
+    "setEnvs": [
+      {
+        "key": "APP_ID",
+        "jsonPath": "id"
+      }
+    ]
+  }
+}

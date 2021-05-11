@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="suite1" parallel="tests" thread-count="2" verbose="2">
+    <parameter name="configName" value="suite1config.json"/>
+    <test name="GET_ConnectionConfig_Expect_CorrectData">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="GET_ConnectionConfig_Expect_CorrectData.json"/>
+            </class>
+        </classes>
+    </test>
+    <test name="GET_OrgStatus_Expect_CorrectData">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="GET_OrgStatus_Expect_CorrectData.json"/>
+            </class>
+        </classes>
+    </test>
+    <test name="GET_AppStatus_Expect_CorrectData">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="GET_AppStatus_Expect_CorrectData.json"/>
+            </class>
+        </classes>
+    </test>
+    <test name="POST_AppPing_Expect_200OK">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="POST_AppPing_Expect_200OK.json"/>
+            </class>
+        </classes>
+    </test>
+    <test name="GET_CheckBackEndHealth_Expect_CorrectData">
+        <classes>
+            <class name="com.wso2.choreo.integrationtests.BasicContractTest">
+                <parameter name="contractName" value="GET_CheckBackEndHealth_Expect_CorrectData.json"/>
+            </class>
+        </classes>
+    </test>
+</suite>
