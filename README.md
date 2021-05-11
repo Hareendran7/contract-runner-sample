@@ -1,7 +1,7 @@
 # Contract runner
 ## contract testing library
 
-### Installation
+### Execution
 
 Folow the below commands to execute this example
 
